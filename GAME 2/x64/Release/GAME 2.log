@@ -1,0 +1,24 @@
+﻿  Player.cpp
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(32,18): warning C4305: '=': truncation from 'double' to 'float'
+  (compiling source file '/Player.cpp')
+  
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(33,15): warning C4305: '=': truncation from 'double' to 'float'
+  (compiling source file '/Player.cpp')
+  
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(297,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(297,58): warning C4244:         with
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(297,58): warning C4244:         [
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(297,58): warning C4244:             T=unsigned int
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(297,58): warning C4244:         ]
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(297,58): warning C4244:         and
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(297,58): warning C4244:         [
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(297,58): warning C4244:             T=float
+C:\Users\ashis\source\repos\GAME 2\GAME 2\Player.cpp(297,58): warning C4244:         ]
+  (compiling source file '/Player.cpp')
+  
+  Generating code
+  0 of 392 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  GAME 2.vcxproj -> C:\Users\ashis\source\repos\GAME 2\x64\Release\GAME 2.exe
