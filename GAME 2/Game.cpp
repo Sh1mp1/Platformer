@@ -21,6 +21,7 @@ void Game::initInput()
 void Game::initPlayer()
 {
 	this->player = new Player();
+
 }
 
 void Game::initText()
@@ -153,6 +154,9 @@ bool Game::canJump()
 void Game::updateTileMap()
 {
 	this->player->move(this->tileMap->update(this->player->getGlobalBounds()));
+
+	sf::Vector2f move = this->tileMap->update(this->player->getGlobalBounds());
+	
 }
 
 void Game::updateMousePos()

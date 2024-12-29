@@ -13,8 +13,11 @@ void Player::initSprite()
 	this->sprite.setTexture(this->texture);
 	this->animation = Animation(44, 186, 52, 68);
 	this->sprite.setTextureRect(this->animation.getFrame());
-	this->sprite.setPosition(sf::Vector2f(100.f, 100.f));
+	this->sprite.setPosition(sf::Vector2f(200.f, 100.f));
 	this->sprite.setScale(sf::Vector2f(2, 2));
+
+
+	//this->sprite.setOrigin(this->sprite.getGlobalBounds().width / 4, 0);
 
 }
 
@@ -209,7 +212,6 @@ void Player::updateInput(sf::RenderWindow& window)
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		//this->sprite.move(sf::Vector2f(0.f , this->movementSpeed));
-		
 	}
 
 	//check shooting
@@ -223,7 +225,7 @@ void Player::updateMovement(TileMap* tile)
 {
 	if (tile->isGrounded(this->sprite.getGlobalBounds()))
 	{
-		this->velocity.y = 0;
+		//this->velocity.y = 0;
 	}
 	else
 	{
@@ -325,6 +327,7 @@ void Player::updateWindowBoundsCollision(sf::RenderWindow& window)
 		{
 			this->sprite.setPosition(sf::Vector2f(0, this->sprite.getPosition().y));
 		}
+		//this->sprite.setPosition(sf::Vector2f(this->sprite.getGlobalBounds().width / 2, this->sprite.getPosition().y));
 	}
 	//Check right side
 	else if (this->sprite.getGlobalBounds().left + this->sprite.getGlobalBounds().width >= window.getSize().x)
@@ -337,15 +340,19 @@ void Player::updateWindowBoundsCollision(sf::RenderWindow& window)
 		{
 			this->sprite.setPosition(sf::Vector2f(window.getSize().x - this->sprite.getGlobalBounds().width, this->sprite.getPosition().y));
 		}
+		//this->sprite.setPosition(sf::Vector2f((window.getSize().x - this->sprite.getGlobalBounds().width / 2), this->sprite.getPosition().y));
 	}
 }
 
 void Player::updateCircle()
 {
 	this->topLeft.setPosition(this->sprite.getGlobalBounds().left, this->sprite.getPosition().y);
+
 	this->topRight.setPosition(this->sprite.getGlobalBounds().left + this->sprite.getGlobalBounds().width, this->sprite.getPosition().y);
-	this->bottomLeft.setPosition(this->sprite.getPosition().x, this->sprite.getGlobalBounds().top + this->sprite.getGlobalBounds().height);
-	this->bottomRight.setPosition(this->sprite.getPosition().x + this->sprite.getGlobalBounds().width, this->sprite.getGlobalBounds().top + this->sprite.getGlobalBounds().height);
+
+	this->bottomLeft.setPosition(this->sprite.getGlobalBounds().left, this->sprite.getGlobalBounds().top + this->sprite.getGlobalBounds().height);
+
+	this->bottomRight.setPosition(this->sprite.getGlobalBounds().left + this->sprite.getGlobalBounds().width, this->sprite.getGlobalBounds().top + this->sprite.getGlobalBounds().height);
 }
 
 

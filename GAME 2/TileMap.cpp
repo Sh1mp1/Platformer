@@ -90,13 +90,13 @@ bool TileMap::isGrounded(sf::FloatRect playerBounds)
 			if (this->tiles[i][j] != nullptr)
 			{
 				sf::FloatRect tileBounds = this->tiles[i][j]->getGlobalBounds();
-				std::cout << tileBounds.top << '\n';
+				//std::cout << tileBounds.top << '\n';
+				//std::cout << tileBounds.intersects(playerBounds);
 
-				if (tileBounds.intersects(playerBounds))
+				if (playerBounds.left <= tileBounds.left + tileBounds.width && playerBounds.left + playerBounds.width >= tileBounds.left)
 				{
-					if (int (playerBounds.top + playerBounds.height) <= int (tileBounds.top))
+					if (int (playerBounds.top + playerBounds.height) == int (tileBounds.top))
 					{
-						std::cout << "#######";
 						return true;
 					}
 				}
@@ -105,6 +105,7 @@ bool TileMap::isGrounded(sf::FloatRect playerBounds)
 	}
 	return false;
 }
+
 
 const sf::Vector2f TileMap::update(sf::FloatRect playerBounds) const
 {
@@ -118,16 +119,19 @@ const sf::Vector2f TileMap::update(sf::FloatRect playerBounds) const
 				if (this->tiles[i][j]->getGlobalBounds().intersects(playerBounds))
 				{
 					sf::FloatRect obstacleBounds = this->tiles[i][j]->getGlobalBounds();
-
+	
 					//Check overlap on each side
 					float overlapLeft = playerBounds.left + playerBounds.width - obstacleBounds.left;
 					float overlapRight = obstacleBounds.left + obstacleBounds.width - playerBounds.left;
 					float overlapTop = playerBounds.top + playerBounds.height - obstacleBounds.top;
 					float overlapBottom = obstacleBounds.top + obstacleBounds.height - playerBounds.top;
-
+					std::cout << "LEFT: " << overlapLeft << "\n";
+					std::cout << "RIGHT: " << overlapRight << "\n";
+					std::cout << "TOP: " << overlapTop << "\n";
+					std::cout << "BOTTOM: " << overlapBottom << "\n";
 					// check which side has minimum overlap
-					float smallestOverlap = std::min({ overlapLeft, overlapRight, overlapTop, overlapBottom });
-
+					float smallestOverlap = std::min({ std::abs(overlapLeft), std::abs(overlapRight), std::abs(overlapTop), std::abs(overlapBottom)});
+	
 					if (smallestOverlap == overlapLeft) {
 						return sf::Vector2f(-overlapLeft, 0);
 					}
@@ -136,11 +140,12 @@ const sf::Vector2f TileMap::update(sf::FloatRect playerBounds) const
 						return sf::Vector2f(overlapRight, 0);
 					}
 					else if (smallestOverlap == overlapTop) {
-						//std::cout << obstacleBounds.top << '\n';
 						return sf::Vector2f(0, -overlapTop);
+						
 					}
 					else if (smallestOverlap == overlapBottom) {
 						return sf::Vector2f(0, overlapBottom);
+						
 					}
 				}
 			}
@@ -148,6 +153,7 @@ const sf::Vector2f TileMap::update(sf::FloatRect playerBounds) const
 		}
 	}
 	return sf::Vector2f(0, 0);
+	std::cout << "1";
 }
 
 void TileMap::render(sf::RenderTarget& target)
