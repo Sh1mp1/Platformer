@@ -105,7 +105,7 @@ void Animation::update(int state)
 			this->currentFrame.left = this->idlePosX[this->idleFrameCount];
 			this->currentFrame.top = this->idleHeight;
 			this->currentFrame.width = this->idleSize.x;
-			//this->currentFrame.height = this->idleSize.y;
+			this->currentFrame.height = this->idleSize.y;
 			this->idleTimer = 0;
 			this->idleFrameCount += 1;
 		}
@@ -129,8 +129,8 @@ void Animation::update(int state)
 		{
 			this->currentFrame.left = this->runPosX[this->runFrameCount];
 			this->currentFrame.top = this->runHeight;
-			this->currentFrame.width = this->runSize.x;
-			//this->currentFrame.height = this->runSize.y;
+			//this->currentFrame.width = this->runSize.x;
+			this->currentFrame.height = this->runSize.y;
 			this->runTimer = 0;
 			this->runFrameCount += 1;
 		}
@@ -154,7 +154,7 @@ void Animation::update(int state)
 			this->currentFrame.left = this->shootPosX[this->shootFrameCount];
 			this->currentFrame.top = this->shootHeight;
 			this->currentFrame.width = this->shootSize.x;
-			//this->currentFrame.height = this->shootSize.y;
+			this->currentFrame.height = this->shootSize.y;
 			this->shootTimer = 0;
 			this->shootFrameCount += 1;
 		}
@@ -179,7 +179,7 @@ void Animation::update(int state)
 			this->currentFrame.left = this->reloadPosX[this->reloadFrameCount];
 			this->currentFrame.top = this->reloadHeight;
 			this->currentFrame.width = this->reloadSize.x;
-			//this->currentFrame.height = this->reloadSize.y;
+			this->currentFrame.height = this->reloadSize.y;
 			this->reloadTimer = 0;
 			this->reloadFrameCount += 1;
 		}

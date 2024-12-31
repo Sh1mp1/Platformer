@@ -22,6 +22,8 @@ void Game::initPlayer()
 {
 	this->player = new Player();
 
+	this->playerJumpTimerMax = 20;
+	this->playerJumpTimer = this->playerJumpTimerMax;
 }
 
 void Game::initText()
@@ -147,8 +149,6 @@ bool Game::canJump()
 	{
 		return false;
 	}
-
-	
 }
 
 void Game::updateTileMap()
@@ -184,10 +184,16 @@ void Game::updateInput()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		if (this->canJump())
+		if (this->canJump() && this->playerJumpTimer >= this->playerJumpTimerMax)
 		{
 			this->player->jump();
+			this->playerJumpTimer = 0;
 		}
+	}
+
+	if (this->playerJumpTimer <= this->playerJumpTimerMax)
+	{
+		this->playerJumpTimer++;
 	}
 }
 

@@ -90,8 +90,6 @@ bool TileMap::isGrounded(sf::FloatRect playerBounds)
 			if (this->tiles[i][j] != nullptr)
 			{
 				sf::FloatRect tileBounds = this->tiles[i][j]->getGlobalBounds();
-				//std::cout << tileBounds.top << '\n';
-				//std::cout << tileBounds.intersects(playerBounds);
 
 				if (playerBounds.left <= tileBounds.left + tileBounds.width && playerBounds.left + playerBounds.width >= tileBounds.left)
 				{
@@ -125,10 +123,6 @@ const sf::Vector2f TileMap::update(sf::FloatRect playerBounds) const
 					float overlapRight = obstacleBounds.left + obstacleBounds.width - playerBounds.left;
 					float overlapTop = playerBounds.top + playerBounds.height - obstacleBounds.top;
 					float overlapBottom = obstacleBounds.top + obstacleBounds.height - playerBounds.top;
-					std::cout << "LEFT: " << overlapLeft << "\n";
-					std::cout << "RIGHT: " << overlapRight << "\n";
-					std::cout << "TOP: " << overlapTop << "\n";
-					std::cout << "BOTTOM: " << overlapBottom << "\n";
 					// check which side has minimum overlap
 					float smallestOverlap = std::min({ std::abs(overlapLeft), std::abs(overlapRight), std::abs(overlapTop), std::abs(overlapBottom)});
 	
@@ -141,7 +135,6 @@ const sf::Vector2f TileMap::update(sf::FloatRect playerBounds) const
 					}
 					else if (smallestOverlap == overlapTop) {
 						return sf::Vector2f(0, -overlapTop);
-						
 					}
 					else if (smallestOverlap == overlapBottom) {
 						return sf::Vector2f(0, overlapBottom);
@@ -153,7 +146,6 @@ const sf::Vector2f TileMap::update(sf::FloatRect playerBounds) const
 		}
 	}
 	return sf::Vector2f(0, 0);
-	std::cout << "1";
 }
 
 void TileMap::render(sf::RenderTarget& target)

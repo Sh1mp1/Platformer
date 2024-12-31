@@ -6,6 +6,8 @@ class Game
 {
 private:
 
+
+
 	sf::RenderWindow window;
 	sf::RectangleShape ground;
 
@@ -17,8 +19,10 @@ private:
 
 	std::vector<bool> uiHasPlayed;
 	
-
+	//Player
 	Player* player;
+	int playerJumpTimerMax;
+	int playerJumpTimer;
 
 	//Textures
 	sf::Texture backgroundTexture;

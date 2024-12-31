@@ -223,18 +223,16 @@ void Player::updateInput(sf::RenderWindow& window)
 
 void Player::updateMovement(TileMap* tile)
 {
+	this->sprite.move(this->velocity);
+
 	if (tile->isGrounded(this->sprite.getGlobalBounds()))
 	{
-		//this->velocity.y = 0;
+		this->velocity.y = 0;
 	}
 	else
 	{
 		this->velocity.y += this->gravity;
 	}
-		
-
-	
-	this->sprite.move(this->velocity);
 }
 
 void Player::jump()
@@ -387,10 +385,10 @@ void Player::render(sf::RenderTarget& target)
 
 	target.draw(this->sprite);
 
-	target.draw(this->topLeft);
-	target.draw(this->topRight);
-	target.draw(this->bottomLeft);
-	target.draw(this->bottomRight);
-
+	//target.draw(this->topLeft);
+	//target.draw(this->topRight);
+	//target.draw(this->bottomLeft);
+	//target.draw(this->bottomRight);
+	
 	//target.draw(this->ground);
 }
