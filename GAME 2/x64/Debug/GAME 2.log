@@ -1,19 +1,2 @@
-﻿  Player.cpp
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(31,18): warning C4305: '=': truncation from 'double' to 'float'
-  (compiling source file '/Player.cpp')
-  
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(32,15): warning C4305: '=': truncation from 'double' to 'float'
-  (compiling source file '/Player.cpp')
-  
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(335,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(335,58): warning C4244:         with
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(335,58): warning C4244:         [
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(335,58): warning C4244:             T=unsigned int
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(335,58): warning C4244:         ]
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(335,58): warning C4244:         and
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(335,58): warning C4244:         [
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(335,58): warning C4244:             T=float
-C:\Users\ashis\source\repos\Platformer\GAME 2\Player.cpp(335,58): warning C4244:         ]
-  (compiling source file '/Player.cpp')
-  
+﻿  Animation.cpp
   GAME 2.vcxproj -> C:\Users\ashis\source\repos\Platformer\x64\Debug\GAME 2.exe

@@ -17,7 +17,7 @@ void Player::initSprite()
 	this->sprite.setScale(sf::Vector2f(2, 2));
 
 
-	//this->sprite.setOrigin(this->sprite.getGlobalBounds().width / 4, 0);
+	this->sprite.setOrigin(this->sprite.getGlobalBounds().width / 4, 0);
 
 }
 
@@ -168,14 +168,6 @@ void Player::updateInput(sf::RenderWindow& window)
 	this->moving = false;
 	this->shooting = false;
 
-	//Check jump
-	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	//{
-	//	if (this->sprite.getGlobalBounds().intersects(this->ground.getGlobalBounds()))
-	//	{
-	//		this->velocity.y = this->jumpStrength;
-	//	}
-	//}
 
 	//check movement
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -187,9 +179,11 @@ void Player::updateInput(sf::RenderWindow& window)
 		if (!this->isFlipped)
 		{
 			this->sprite.setScale(sf::Vector2f(-this->sprite.getScale().x, this->sprite.getScale().y));
-			this->sprite.move(this->sprite.getGlobalBounds().width, 0.f);
+			//this->sprite.move(this->sprite.getGlobalBounds().width, 0.f);
 			this->isFlipped = true;
 		}
+
+		//this->sprite.setScale(sf::Vector2f(-this->sprite.getScale().x, this->sprite.getScale().y));
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
@@ -199,9 +193,11 @@ void Player::updateInput(sf::RenderWindow& window)
 		if (isFlipped)
 		{
 			this->sprite.setScale(sf::Vector2f(-this->sprite.getScale().x, this->sprite.getScale().y));
-			this->sprite.move(-this->sprite.getGlobalBounds().width, 0.f);
+			//this->sprite.move(-this->sprite.getGlobalBounds().width, 0.f);
 			this->isFlipped = false;
 		}
+
+		//this->sprite.setScale(sf::Vector2f(-this->sprite.getScale().x, this->sprite.getScale().y));
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
@@ -317,28 +313,31 @@ void Player::updateWindowBoundsCollision(sf::RenderWindow& window)
 	if (this->sprite.getGlobalBounds().left <= 0)
 	{
 	
-		if (this->isFlipped)
-		{
-			this->sprite.setPosition(sf::Vector2f(this->sprite.getGlobalBounds().width, this->sprite.getPosition().y));
-		}
-		else
-		{
-			this->sprite.setPosition(sf::Vector2f(0, this->sprite.getPosition().y));
-		}
-		//this->sprite.setPosition(sf::Vector2f(this->sprite.getGlobalBounds().width / 2, this->sprite.getPosition().y));
+		//if (this->isFlipped)
+		//{
+		//	this->sprite.setPosition(sf::Vector2f(this->sprite.getGlobalBounds().width, this->sprite.getPosition().y));
+		//}
+		//else
+		//{
+		//	this->sprite.setPosition(sf::Vector2f(0, this->sprite.getPosition().y));
+		//}
+		
+		this->sprite.setPosition(sf::Vector2f(this->sprite.getGlobalBounds().width / 2, this->sprite.getPosition().y));
 	}
 	//Check right side
 	else if (this->sprite.getGlobalBounds().left + this->sprite.getGlobalBounds().width >= window.getSize().x)
 	{
-		if (this->isFlipped)
-		{
-			this->sprite.setPosition(sf::Vector2f(window.getSize().x, this->sprite.getPosition().y));
-		}
-		else
-		{
-			this->sprite.setPosition(sf::Vector2f(window.getSize().x - this->sprite.getGlobalBounds().width, this->sprite.getPosition().y));
-		}
-		//this->sprite.setPosition(sf::Vector2f((window.getSize().x - this->sprite.getGlobalBounds().width / 2), this->sprite.getPosition().y));
+		//if (this->isFlipped)
+		//{
+		//	this->sprite.setPosition(sf::Vector2f(window.getSize().x, this->sprite.getPosition().y));
+		//}
+		//else
+		//{
+		//	this->sprite.setPosition(sf::Vector2f(window.getSize().x - this->sprite.getGlobalBounds().width, this->sprite.getPosition().y));
+		//}
+
+
+		this->sprite.setPosition(sf::Vector2f((window.getSize().x - this->sprite.getGlobalBounds().width / 2), this->sprite.getPosition().y));
 	}
 }
 
